@@ -1,5 +1,7 @@
 @echo off
-SET adb="%~dp0bin\adb.exe"
+for /f "tokens=3 delims= " %%a in ('chcp') do set lang=%%a
+if "%lang%" == "932" (set doc=%~dp0doc\jp) else (set doc=%~dp0doc\en)
+SET adb=%~dp0bin\adb.exe
 
 type "%doc%\01_Thanks.txt"
 pause
