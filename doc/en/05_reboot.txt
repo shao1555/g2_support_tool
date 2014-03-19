@@ -1,8 +1,3 @@
-端末がリカバリモードで再起動して
-自動的にSuperSuインストールが始まります。
-
-リカバリモード再起動時に確認画面で停止しますので
-電源ボタンを押して(noを選択)リカバリの終了してください。
-
-このWindowはそのままお待ちください
-
+Your phone will reboot in recovery and start to install SuperSU automatically.
+Exit recovery after that.
+Don't close this window!

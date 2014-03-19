@@ -1,24 +1,22 @@
 ------------------------------------------------------------------------
 * G2 CWM Install Tools
-*********************************注意*********************************
-このツールはLG G2日本モデルへCWMを導入するツールです。
+*********************************WARNING*********************************
+This is a tool to install CWM Recovery to your Japanese G2 variant.
 
-補償対象外の行為となりますので必ず自己責任で使用してください。
-使用したことによりいかなる損害があったとしても責任は負えません。
-CWM導入の前に必ずパーティションのバックアップを行なってください。
-パーティションバックアップについては下記のページを参照してください。
+Your warranty is now void.
+We are not responsible for bricked devices, dead SD cards, or any other issues that may arise from ignorance.
+Make sure to backup all partitions and keep them in a safe location.
+See the detail below to backup.
 http://android.slateblue.tk/viewtopic.php?f=23&t=137
-起動しなくなった端末をdocomoショップ等に修理依頼する事はご遠慮ください。
-同意して頂ける場合のみ機種をPCに接続して「runme.bat」を開き作業を進めてください。
+Don't take a damaged device to a store due to your hacks.
+If you agree, connect your device and run "runme.bat".
 
-※このツールはWindows用です。WWindows 8.1 Pro 64bit版にて動作確認
-  済みですが、一部の環境では動作しない事がありますのでその際はご容赦願います。
+This is only for Windows.
+We confirmed that this works on x64 Windows 8.1 Pro but might not work in some particular environments.
 **********************************************************************
 
-このツールでは次の方たちの作成物を使用させて頂いております。
-・android-rooting-tools/android_run_root_shell
-・fi01/unlock_security_module
-・djrbliss/loki
-
-
-感謝いたします！
+Credits:
+android-rooting-tools for android_run_root_shell
+fi01 for unlock_security_module
+djrbliss for loki
+and more...
