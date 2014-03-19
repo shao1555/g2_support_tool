@@ -5,7 +5,7 @@
 # See here for more information on loki: https://github.com/djrbliss/loki
 #
 
-export C=/data/local/tmp/
+export C=/data/local/tmp/loki
 bb="$C/busybox_file"
 
 if [ ! -f /sdcard/recovery_org.img ] ; then
@@ -17,10 +17,5 @@ mkdir -p $C
 dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=$C/aboot.img
 $C/loki_patch recovery $C/aboot.img $C/recovery.img $C/recovery.lok || exit 1
 $C/loki_flash recovery $C/recovery.lok || exit 1
-rm $C/aboot.img
-rm $C/recovery.img
-rm $C/recovery.lok
-$C/loki_patch
-$C/loki_flash
 exit 0
 
