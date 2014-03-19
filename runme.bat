@@ -1,24 +1,21 @@
 @echo off
-SET adb="%~dp0adb\adb.exe"
-SET recoveryimg=LGL22-KK-KBC-CWM-v6.0.4.7_r1-recovery.img
-
+SET adb="%~dp0bin\adb.exe"
 type "%~dp0doc\01_Thanks.txt"
 pause
 
 call :adb_push
 
 
-echo . 本ツール、recoveryを使用する事に起因する
-echo . データ破損、機器破損については責任をもちません。
-echo . 今ならまだ引き返せます
-set /P INPUT=作業を継続しますか？(N/Y):  
+type "%~dp0doc\03_warning.txt"
+set /P INPUT=(N/y):  
 if "%INPUT%"=="Y" call :install_recovery
 if "%INPUT%"=="y" call :install_recovery
+goto finish
 
-
-set /P INPUT=恒久Root(with SuperSu)を取得しますかぁ？(N/Y):  
-if "%INPUT%" == "Y" call :iinstall_su
-if "%INPUT%" == "y" call :iinstall_su
+type "%~dp0doc\04_warning_su.txt"
+set /P INPUT=(N/y):  
+if "%INPUT%" == "Y" call :install_su
+if "%INPUT%" == "y" call :install_su
 
 :finish
 call :clean
@@ -29,7 +26,6 @@ exit /b
 
 :adb_push
 %adb% push "%~dp0files" /data/local/tmp/
-
 %adb% shell chmod 755 /data/local/tmp/busybox_file
 :: rooting
 %adb% shell chmod 755 /data/local/tmp/get_essential_address
@@ -37,7 +33,7 @@ exit /b
 %adb% shell chmod 755 /data/local/tmp/run_root_shell
 %adb% shell chmod 755 /data/local/tmp/run_root.sh
 :: loki
-%adb% shell chmod 755 /data/local/tmp/loki.sh
+%adb% shell chmod 755 /data/local/tmp/loki/loki.sh
 %adb% shell chmod 755 /data/local/tmp/loki/loki_flash
 %adb% shell chmod 755 /data/local/tmp/loki/loki_patch
 %adb% shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
@@ -51,9 +47,10 @@ exit /b
 exit /b
 
 :install_su
+cls
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/SuperSu/install_su.sh
 %adb% shell /data/local/tmp/run_root_shell -c "reboot recovery"
-echo 端末が再起動しますのでお待ちください
+type "%~dp0doc\05_reboot.txt"
 %adb% wait-for-device
 exit /b
 
