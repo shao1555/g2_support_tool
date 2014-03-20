@@ -16,5 +16,5 @@ $bb mount -o remount,ro /system
 
 
 echo 'mount("/data");' > /cache/recovery/extendedcommand
-echo 'install_zip("/data/local/tmp/UPDATE-SuperSU-v1.93.zip");' >> /cache/recovery/extendedcommand
+echo 'install_zip("/data/local/tmp/SuperSu/UPDATE-SuperSU-v1.93.zip");' >> /cache/recovery/extendedcommand
 
