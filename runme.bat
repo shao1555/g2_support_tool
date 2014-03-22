@@ -14,7 +14,6 @@ type "%doc%\03_warning.txt"
 set /P INPUT=(N/y):  
 if "%INPUT%"=="Y" call :install_recovery
 if "%INPUT%"=="y" call :install_recovery
-goto finish
 
 type "%doc%\04_warning_su.txt"
 set /P INPUT=(N/y):  
