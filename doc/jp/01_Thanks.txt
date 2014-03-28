@@ -19,6 +19,6 @@ http://android.slateblue.tk/viewtopic.php?f=23&t=137
 ・android-rooting-tools/android_run_root_shell
 ・fi01/unlock_security_module
 ・djrbliss/loki
-
-
 感謝いたします！
+
+開発者向けオプションのUSBデバッグを有効にして端末を接続してください。

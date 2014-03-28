@@ -20,3 +20,5 @@ android-rooting-tools for android_run_root_shell
 fi01 for unlock_security_module
 djrbliss for loki
 and more...
+
+Enable USB debugging in developer options and connect your device.
