@@ -9,9 +9,8 @@ get_uid()
 }
 
 if [ -f /system/xbin/su ] ; then
-	/system/xbin/su
 	if [ `get_uid` eq 0 ] ; then
-		$1
+		/system/xbin/su -c "$1"
 		exit 0
 	fi
 fi
