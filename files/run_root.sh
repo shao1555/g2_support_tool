@@ -15,6 +15,6 @@ if [ -f /system/xbin/su ] ; then
 	fi
 fi
 cd $C
-./get_essential_address
+#./get_essential_address
 ./unlock_security_module
 ./run_root_shell -c $1
