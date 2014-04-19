@@ -20,7 +20,7 @@ fi
 
 mkdir -p $C
 dd if=/dev/block/platform/msm_sdcc.1/by-name/aboot of=$C/aboot.img
-$C/loki_patch recovery $C/aboot.img $recovery_img $C/recovery.lok || exit 1
-$C/loki_flash recovery $C/recovery.lok || exit 1
+$C/loki_tool patch recovery $C/aboot.img $recovery_img $C/recovery.lok || exit 1
+$C/loki_tool flash recovery $C/recovery.lok || exit 1
 exit 0
 
