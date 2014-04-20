@@ -52,14 +52,14 @@ exit /b
 :backup
 echo start backup
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/backup.sh
-
+mkdir %~dp0backups
+adb pull /sdcard/backup/   "%~dp0backups"
 exit /b
 
 
 :install_recovery
 echo start instrall recovery
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/loki/loki.sh
-%adb% pull /sdcard/recovery_org.img
 
 exit /b
 
