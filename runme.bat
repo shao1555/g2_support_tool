@@ -10,6 +10,12 @@ pause
 call :adb_push
 
 
+type "%doc%\06_backup.txt"
+set /P INPUT=(N/y):  
+if "%INPUT%" == "Y" call :backup
+if "%INPUT%" == "y" call :backup
+
+
 type "%doc%\03_warning.txt"
 set /P INPUT=(N/y):  
 if "%INPUT%"=="Y" call :install_recovery
@@ -35,15 +41,23 @@ exit /b
 %adb% shell chmod 755 /data/local/tmp/unlock_security_module
 %adb% shell chmod 755 /data/local/tmp/run_root_shell
 %adb% shell chmod 755 /data/local/tmp/run_root.sh
+%adb% shell chmod 755 /data/local/tmp/backup.sh
 :: loki
 %adb% shell chmod 755 /data/local/tmp/loki/loki.sh
-%adb% shell chmod 755 /data/local/tmp/loki/loki_flash
-%adb% shell chmod 755 /data/local/tmp/loki/loki_patch
+%adb% shell chmod 755 /data/local/tmp/loki/loki_tool
 %adb% shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
 
 exit /b
 
+:backup
+echo start backup
+%adb% shell /data/local/tmp/run_root.sh /data/local/tmp/backup.sh
+
+exit /b
+
+
 :install_recovery
+echo start instrall recovery
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/loki/loki.sh
 %adb% pull /sdcard/recovery_org.img
 
@@ -51,6 +65,7 @@ exit /b
 
 :install_su
 cls
+echo start instrall SuperSu
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/SuperSu/install_su.sh
 %adb% shell /data/local/tmp/run_root_shell -c "reboot recovery"
 type "%doc%\05_reboot.txt"
