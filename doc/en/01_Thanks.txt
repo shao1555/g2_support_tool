@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------
-* G2 CWM Install Tools
+* G2 Support Tool
 *********************************WARNING*********************************
-This is a tool to install CWM Recovery to your Japanese G2 variant.
+This is a tool to assist to hack your Japanese G2 variant.
 
 Your warranty is now void.
 We are not responsible for bricked devices, dead SD cards, or any other issues that may arise from ignorance.
