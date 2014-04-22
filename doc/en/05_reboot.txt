@@ -1,3 +1,4 @@
-Your phone will reboot in recovery and start to install SuperSU automatically.
-Exit recovery after that.
+Your phone will reboot in recovery and continue to install.
+restart phone automatically after that.
+
 Don't close this window!
