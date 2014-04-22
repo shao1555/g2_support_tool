@@ -83,14 +83,16 @@ echo prepear for gettting the permanent root
 %adb% push "%~dp0files\SuperSu" /data/local/tmp/SuperSu
 %adb% shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
 
-echo start instrall SuperSu.apk
-%adb% install "%~dp0files\SuperSu_forHost\eu.chainfire.supersu-193.apk"
+
 
 echo install su binaries
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/SuperSu/install_su.sh
-%adb% shell /data/local/tmp/run_root_shell -c "reboot"
+%adb% shell /data/local/tmp/run_root_shell -c "reboot recovery"
 type "%doc%\05_reboot.txt"
 %adb% wait-for-device
+
+echo start instrall SuperSu.apk
+%adb% install "%~dp0files\SuperSu_forHost\eu.chainfire.supersu-193.apk"
 exit /b
 
 
