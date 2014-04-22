@@ -1,5 +1,5 @@
 *********************************注意*********************************
-このツールはLG G2日本モデルへCWMを導入するツールです。
+このツールはLG G2日本モデルのハックを補助するためのツールです。
 
 補償対象外の行為となりますので必ず自己責任で使用してください。
 使用したことによりいかなる損害があったとしても責任は負えません。
@@ -46,3 +46,39 @@ http://forum.xda-developers.com/showthread.php?t=1538053
 より、UPDATE-SuperSU-v1.93.zipをダウンロードして
 files\SuperSu\へコピーしてから実行してください。
 
+*********************************WARNING*********************************
+This is a tool to assist to hack your Japanese G2 variant.
+
+Your warranty is now void.
+We are not responsible for bricked devices, dead SD cards, or any other issues that may arise from ignorance.
+Make sure to backup all partitions and keep them in a safe location.
+See the detail below to backup.
+http://android.slateblue.tk/viewtopic.php?f=23&t=137
+Don't take a damaged device to a store due to your hacks.
+If you agree, connect your device and run "runme.bat".
+
+This is only for Windows.
+We confirmed that this works on x64 Windows 8.1 Pro but might not work in some particular environments.
+**********************************************************************
+
+* Credits
+android-rooting-tools for android_run_root_shell
+fi01 for unlock_security_module
+djrbliss for loki
+and more...
+
+* Backup
+This tool supports to backup all partitions of your phone.
+Do backup at first, just in case.
+If you backup multiple times, your old backup will be overwrited.
+Make sure that your phone is not rooted or installed CWM when you backup.
+The backup will be transfered to your computer automatically and you should rename to avoid overwriting.
+
+* CWM Recovery
+If it doesn't exist or you want to a newer version, get it from below and put it in files\recovery.
+LGL22: http://android.slateblue.tk/viewtopic.php?f=25&t=160
+L01F: http://android.slateblue.tk/viewtopic.php?f=25&t=179&p=1192#p1192
+
+* Permanent Root Access
+Get UPDATE-SuperSU-v1.93.zip from below and put it in files\SuperSu\.
+http://forum.xda-developers.com/showthread.php?t=1538053
