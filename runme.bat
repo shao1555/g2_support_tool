@@ -34,31 +34,43 @@ exit /b
 
 
 :adb_push
-%adb% push "%~dp0files" /data/local/tmp/
+%adb% push "%~dp0files\tmproot" /data/local/tmp/
 %adb% shell chmod 755 /data/local/tmp/busybox_file
 :: rooting
 %adb% shell chmod 755 /data/local/tmp/get_essential_address
 %adb% shell chmod 755 /data/local/tmp/unlock_security_module
 %adb% shell chmod 755 /data/local/tmp/run_root_shell
 %adb% shell chmod 755 /data/local/tmp/run_root.sh
-%adb% shell chmod 755 /data/local/tmp/backup.sh
-:: loki
-%adb% shell chmod 755 /data/local/tmp/loki/loki.sh
-%adb% shell chmod 755 /data/local/tmp/loki/loki_tool
-%adb% shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
+
+
 
 exit /b
 
 :backup
+echo prepear for backup
+%adb% push "%~dp0files\backup" /data/local/tmp/
+%adb% shell chmod 755 /data/local/tmp/backup.sh
+
 echo start backup
 type "%doc%\07_warning_backup.txt"
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/backup.sh
+echo save to PC
 mkdir %~dp0backups
 adb pull /sdcard/backup/   "%~dp0backups"
 exit /b
 
 
 :install_recovery
+echo prepear for install recovery
+%adb% shell mkdir -p /data/local/tmp/recovery
+%adb% shell mkdir -p /data/local/tmp/loki
+%adb% push "%~dp0files\recovery" /data/local/tmp/recovery
+%adb% push "%~dp0files\loki" /data/local/tmp/loki
+:: loki
+%adb% shell chmod 755 /data/local/tmp/loki/loki.sh
+%adb% shell chmod 755 /data/local/tmp/loki/loki_tool
+
+
 echo start instrall recovery
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/loki/loki.sh
 
@@ -66,12 +78,21 @@ exit /b
 
 :install_su
 cls
-echo start instrall SuperSu
+echo prepear for gettting the permanent root
+%adb% shell mkdir -p /data/local/tmp/SuperSu
+%adb% push "%~dp0files\SuperSu" /data/local/tmp/SuperSu
+%adb% shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
+
+echo start instrall SuperSu.apk
+%adb% install "%~dp0files\SuperSu_forHost\eu.chainfire.supersu-193.apk"
+
+echo install su binaries
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/SuperSu/install_su.sh
-%adb% shell /data/local/tmp/run_root_shell -c "reboot recovery"
+%adb% shell /data/local/tmp/run_root_shell -c "reboot"
 type "%doc%\05_reboot.txt"
 %adb% wait-for-device
 exit /b
+
 
 :clean
 %adb% shell rm /data/local/tmp/busybox_file
