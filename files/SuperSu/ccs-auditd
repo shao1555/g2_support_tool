@@ -1,0 +1,9 @@
+#!/system/bin/sh
+ 
+# device.dbを/system/etc/device.dbに
+# unlock_security_moduleを/system/bin/unlock_security_moduleに置く想定
+ 
+cp /system/etc/device.db /data/local/tmp/device.db
+chmod 666 /data/local/tmp/device.db
+unlock_security_module
+rm /data/local/tmp/device.db
