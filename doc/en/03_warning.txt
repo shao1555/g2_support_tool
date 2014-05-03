@@ -1,3 +1,6 @@
+-------------------------------------------------------------------------------
+Custom Recovery Install
+-------------------------------------------------------------------------------
 Your warranty is now void.
 We are not responsible for bricked devices, dead SD cards, or any other issues that may arise from ignorance.
 Do you really agree and continue to install CWM?

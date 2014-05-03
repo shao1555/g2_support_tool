@@ -1,5 +1,9 @@
 -------------------------------------------------------------------------------
-Image Backup
+Menu
 -------------------------------------------------------------------------------
-バックアップにはとても時間がかかります
-USBケーブルを抜かないすにお茶でも飲んでお待ちください。
+1: Image backup
+2: Install Custom Recovery
+3: Get a permanent root(with SuperSu)
+9: Exit
+
+Select number and press enter.
