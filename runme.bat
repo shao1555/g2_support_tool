@@ -6,11 +6,16 @@ SET adb="%~dp0bin\adb.exe"
 mode con:cols=80 lines=40
 type %doc%\"01_Thanks.txt"
 pause
+
+%adb% shell id
+IF %ERRORLEVEL% neq 0 goto device_not_found
+
 call :adb_push
 
 :menu
 COLOR 0A
 type %doc%\"08_menu.txt"
+SET INPUT=
 set /P INPUT=Num :
 if "%INPUT%" == "1" call :backup
 if "%INPUT%" == "2" call :install_recovery
@@ -28,8 +33,18 @@ pause
 exit /b
 
 ::==============================================================
+:device_not_found
+COLOR 0C
+type %doc%\"09_Error_device_not_found.txt"
+pause
+exit /b
+
+::==============================================================
 :adb_push
 %adb% push "%~dp0files\tmproot" /data/local/tmp/
+
+::IF %ERRORLEVEL% neq 0 exit /b 1
+
 %adb% shell chmod 755 /data/local/tmp/busybox_file
 :: rooting
 %adb% shell chmod 755 /data/local/tmp/get_essential_address
@@ -110,6 +125,7 @@ echo install su binaries
 %adb% shell /data/local/tmp/run_root_shell -c "reboot recovery"
 type %doc%\"05_reboot.txt"
 %adb% wait-for-device
+call :adb_push
 
 echo start instrall SuperSu.apk
 %adb% install "%~dp0files\SuperSu_forHost\eu.chainfire.supersu-193.apk"
