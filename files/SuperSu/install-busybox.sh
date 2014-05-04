@@ -281,7 +281,6 @@ $bb ln -sf /system/xbin/busybox /system/xbin/start-stop-daemon
 $bb ln -sf /system/xbin/busybox /system/xbin/stat
 $bb ln -sf /system/xbin/busybox /system/xbin/strings
 $bb ln -sf /system/xbin/busybox /system/xbin/stty
-$bb ln -sf /system/xbin/busybox /system/xbin/su
 $bb ln -sf /system/xbin/busybox /system/xbin/sulogin
 $bb ln -sf /system/xbin/busybox /system/xbin/sum
 $bb ln -sf /system/xbin/busybox /system/xbin/sv
@@ -355,4 +354,3 @@ $bb ln -sf /system/xbin/busybox /system/xbin/xzcat
 $bb ln -sf /system/xbin/busybox /system/xbin/yes
 $bb ln -sf /system/xbin/busybox /system/xbin/zcat
 $bb ln -sf /system/xbin/busybox /system/xbin/zcip
-$bb cp /system/xbin/daemonsu /system/xbin/su
