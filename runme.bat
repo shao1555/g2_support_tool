@@ -72,7 +72,7 @@ type %doc%\"07_warning_backup.txt"
 %adb% shell /data/local/tmp/run_root.sh /data/local/tmp/backup.sh
 echo save to PC
 mkdir %~dp0backups
-adb pull /sdcard/backup/   "%~dp0backups"
+%adb% pull /sdcard/backup/   "%~dp0backups"
 pause
 exit /b
 
