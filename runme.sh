@@ -18,7 +18,7 @@ else
 fi
 
 # push files
-# adb push files/tmproot /data/local/tmp/
+adb push files/tmproot /data/local/tmp/
 adb shell chmod 755 /data/local/tmp/busybox_file
 adb shell chmod 755 /data/local/tmp/get_essential_address
 adb shell chmod 755 /data/local/tmp/unlock_security_module
@@ -41,6 +41,15 @@ adb push files/loki /data/local/tmp/loki
 # loki
 adb shell chmod 755 /data/local/tmp/loki/loki.sh
 adb shell chmod 755 /data/local/tmp/loki/loki_tool
-
 adb shell /data/local/tmp/run_root.sh /data/local/tmp/loki/loki.sh
+
+# su
+adb shell mkdir -p /data/local/tmp/SuperSu
+adb push files/SuperSu /data/local/tmp/SuperSu
+adb shell chmod 755 /data/local/tmp/SuperSu/install_su.sh
+adb shell chmod 755 /data/local/tmp/SuperSu/install-busybox.sh
+adb shell /data/local/tmp/run_root_shell -c "chmod 6755 /data/local/tmp/SuperSu/sed/xbin/daemonsu"
+adb shell /data/local/tmp/run_root.sh /data/local/tmp/SuperSu/install_su.sh
+adb install files/SuperSu_forHost/eu.chainfire.supersu-193.apk
+adb shell /data/local/tmp/run_root_shell -c "reboot recovery"
 
